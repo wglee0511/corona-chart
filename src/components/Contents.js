@@ -49,6 +49,10 @@ const DeathDiv = styled.div.attrs({
   color: ${theme.Death};
 `;
 
+const LoaderDiv = styled.div.attrs({
+  className: "flex-box",
+})``;
+
 const labelForChart = {
   confirmed: "2020 ~ 2021 년도 확진자 수",
 };
@@ -204,7 +208,7 @@ const Contents = (props) => {
         </DeathDiv>
       </TotalWordDiv>
       <FlexDiv>
-        <EachDiv>{isLoading && <Loader />}</EachDiv>
+        <LoaderDiv>{isLoading && <Loader />}</LoaderDiv>
         <EachDiv>
           <Doughnut data={toDay} />
         </EachDiv>
