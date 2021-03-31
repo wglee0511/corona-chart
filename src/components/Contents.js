@@ -201,7 +201,7 @@ const Contents = (props) => {
           확진자 수 <div>{toDayDate.confirmed}</div>
         </ConDiv>
         <RecovDiv>
-          격리해재자 수 <div>{toDayDate.recovered}</div>
+          격리해제자 수 <div>{toDayDate.recovered}</div>
         </RecovDiv>
         <DeathDiv>
           사망자 수 <div>{toDayDate.deaths}</div>
