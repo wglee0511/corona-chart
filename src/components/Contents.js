@@ -204,7 +204,7 @@ const Contents = (props) => {
         </DeathDiv>
       </TotalWordDiv>
       <FlexDiv>
-        {isLoading && <Loader />}
+        <EachDiv>{isLoading && <Loader />}</EachDiv>
         <EachDiv>
           <Doughnut data={toDay} />
         </EachDiv>
