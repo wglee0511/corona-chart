@@ -3,11 +3,10 @@ import styled from "styled-components";
 import { Doughnut, Bar } from "react-chartjs-2";
 import axios from "axios";
 import theme from "../styles/theme";
-import Table from "./Table";
+import Loader from "./Loader";
 
 const Wrapper = styled.div`
   padding: 20px 15% 20px 15%;
-  height: 88vh;
 `;
 
 const TextH1 = styled.h1`
@@ -19,13 +18,12 @@ const TextH1 = styled.h1`
 `;
 
 const FlexDiv = styled.div`
-  height: 30vh;
-  display: flex;
+  width: 100%;
 `;
 
 const EachDiv = styled.div`
-  height: 100%;
-  width: 50%;
+  margin: 40px 0 40px 0;
+  padding: 0 20% 0 20%;
 `;
 
 const TotalWordDiv = styled.div`
@@ -206,6 +204,7 @@ const Contents = (props) => {
         </DeathDiv>
       </TotalWordDiv>
       <FlexDiv>
+        {isLoading && <Loader />}
         <EachDiv>
           <Doughnut data={toDay} />
         </EachDiv>
@@ -213,8 +212,6 @@ const Contents = (props) => {
           <Bar data={confirmed} />
         </EachDiv>
       </FlexDiv>
-
-      <Table />
     </Wrapper>
   );
 };

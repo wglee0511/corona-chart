@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import Loader from "./Loader";
 
 const BASEURL = "https://api.odcloud.kr/api";
 
@@ -12,27 +13,31 @@ const getApi = axios.create({
 });
 
 const Wrapper = styled.div`
-  margin: 30px 0 30px 0;
+  margin: 30px 15% 30px 15%;
 `;
 
 const Table = () => {
-  const [centerInfo, setCenterInfo] = useState({});
+  const [centerInfo, setCenterInfo] = useState([]);
+  const [isLoading, setLoading] = useState(false);
 
   useEffect(() => {
     (async () => {
+      setLoading(true);
       await getApi
         .get(CENTERAPI)
         .then((response) => {
           const getData = response.data.data;
           const centerData = getData.map((each) => {
             return {
+              id: each.id,
               address: each.address,
               centerType: each.centerType,
               centerName: each.centerName,
               facilityName: each.facilityName,
             };
           });
-          setCenterInfo(centerData);
+          setCenterInfo([...centerData]);
+          setLoading(false);
         })
         .catch((error) => console.error(error));
     })();
@@ -50,17 +55,17 @@ const Table = () => {
           </tr>
         </thead>
         <tbody>
-          {centerInfo &&
-            centerInfo.map((each) => {
-              return (
-                <tr>
-                  <th>{each.centerType}</th>
-                  <th>{each.centerName}</th>
-                  <th>{each.address}</th>
-                  <th>{each.facilityName}</th>
-                </tr>
-              );
-            })}
+          {isLoading && <Loader />}
+          {centerInfo.map((each) => {
+            return (
+              <tr key={each.id}>
+                <td>{each.centerType}</td>
+                <td>{each.centerName}</td>
+                <td>{each.address}</td>
+                <td>{each.facilityName}</td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </Wrapper>

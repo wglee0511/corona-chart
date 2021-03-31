@@ -8,10 +8,10 @@ const Wrapper = styled.div`
 `;
 
 const Navigation = styled.nav`
-padding: 20px 15% 20px 15%;
-background-color: ${theme.bgColor};
-display: flex;
-align-items: flex-end;
+  padding: 20px 15% 20px 15%;
+  background-color: ${theme.bgColor};
+  display: flex;
+  align-items: flex-end;
 `;
 
 const TextCovid = styled.h1`
@@ -20,7 +20,7 @@ const TextCovid = styled.h1`
   color: white;
 `;
 const TextAn = styled.span`
-  font-size: 30px;
+  font-size: 15px;
   font-weight: 800;
   color: white;
   padding-left: 30px;
@@ -29,13 +29,15 @@ const Navbar = () => {
   return (
     <Wrapper>
       <Navigation>
-      <Link to="/">
-        <TextCovid>Covid-19</TextCovid>
-      </Link>
-      <Link to="/">
-        <TextAn>Kr</TextAn>
-      </Link>
-
+        <Link to="/">
+          <TextCovid>Covid-19</TextCovid>
+        </Link>
+        <Link to="/">
+          <TextAn>확진자현황</TextAn>
+        </Link>
+        <Link to="/table">
+          <TextAn>코로나백신센터</TextAn>
+        </Link>
       </Navigation>
     </Wrapper>
   );
