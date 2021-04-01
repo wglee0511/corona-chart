@@ -12,7 +12,7 @@ function App() {
         <Navbar />
 
         <Switch>
-          <Route exact path="/">
+          <Route exact path="/corona-chart">
             <Contents />
           </Route>
           <Route exact path="/table">

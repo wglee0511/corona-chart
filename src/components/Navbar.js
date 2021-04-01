@@ -29,10 +29,9 @@ const Navbar = () => {
   return (
     <Wrapper>
       <Navigation>
-        <Link to="/">
-          <TextCovid>Covid-19</TextCovid>
-        </Link>
-        <Link to="/">
+        <TextCovid>Covid-19</TextCovid>
+
+        <Link to="/corona-chart">
           <TextAn>확진자현황</TextAn>
         </Link>
         <Link to="/table">

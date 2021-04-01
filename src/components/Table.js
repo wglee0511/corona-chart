@@ -16,6 +16,10 @@ const Wrapper = styled.div`
   margin: 30px 15% 30px 15%;
 `;
 
+const LoaderDiv = styled.div.attrs({
+  className: "flex-box",
+})``;
+
 const Table = () => {
   const [centerInfo, setCenterInfo] = useState([]);
   const [isLoading, setLoading] = useState(false);
@@ -45,6 +49,11 @@ const Table = () => {
 
   return (
     <Wrapper>
+      {isLoading && (
+        <LoaderDiv>
+          <Loader />
+        </LoaderDiv>
+      )}
       <table className="table table-cart">
         <thead>
           <tr>
@@ -55,7 +64,6 @@ const Table = () => {
           </tr>
         </thead>
         <tbody>
-          {isLoading && <Loader />}
           {centerInfo.map((each) => {
             return (
               <tr key={each.id}>

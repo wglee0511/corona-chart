@@ -71,7 +71,6 @@ const Contents = (props) => {
   const [confirmed, setConfirmed] = useState({});
   const [toDay, setToday] = useState({});
   const [toDayDate, setTodayDate] = useState("");
-
   const [isLoading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -129,9 +128,9 @@ const Contents = (props) => {
           }, []);
 
           const todayData = {
-            year: arrData[arrData.length - 2].year,
-            month: arrData[arrData.length - 2].month,
-            date: arrData[arrData.length - 2].date,
+            year: arrData[arrData.length - 1].year,
+            month: arrData[arrData.length - 1].month,
+            date: arrData[arrData.length - 1].date,
             active:
               arrData[arrData.length - 2].active -
               arrData[arrData.length - 3].active,
