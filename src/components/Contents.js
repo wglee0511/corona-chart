@@ -180,7 +180,7 @@ const Contents = (props) => {
           });
           setTodayDate({
             title: `${todayData.year}년 ${todayData.month + 1}월 ${
-              todayData.date
+              todayData.date - 1
             }일 확진자 현황`,
             confirmed: todayData.confirmed,
             recovered: todayData.recovered,
